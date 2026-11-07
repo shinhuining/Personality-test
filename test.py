@@ -4,18 +4,20 @@ window= Tk()
 window.geometry("920x400")
 window.title("Personality Test")
 
+num=0
+score=0
 questions=[
      ["How do you prefer spending your weekends?",
 "Going out, meeting friends.",
  "Staying home.",
  "A mixture of both sometimes."],
 
- ["During a group conversation, you usually:",
+["During a group conversation, you usually:",
  "Actively participate.",
  "Listen more than you speak.",
  "Contribute only when something interests you."],
 
- ["After a long, socially exhausting day, you prefer to:",]
+ ["After a long, socially exhausting day, you prefer to:",
  "Meet more people.",
  "Spend some quiet time alone.",
  "Relax with a few close friends."],
@@ -60,4 +62,26 @@ questions=[
  "Reserved, thoughtful and independent.",
  "Friendly, adaptable and somewhere in between."]
 ]
+label=Label(window, text=questions[num][0], fg="white", bg="black")
+label.pack(pady=20)
+def next(choice):
+    global num
+    num+=1
+    label.config(text=questions[num][0])
+    button1.config(text=questions[num][1])
+    button2.config(text=questions[num][2])
+    button3.config(text=questions[num][3])
+
+    if num == len(questions)-1:
+        label.config(text="Thank you for completing the test!")
+        button1.pack_forget()
+        button2.pack_forget()
+        button3.pack_forget()
+
+button1=Button(window, text=questions[0][1], command=lambda: next(1))
+button1.pack(pady=10)
+button2=Button(window, text=questions[0][2], command=lambda: next(2))
+button2.pack(pady=10)
+button3=Button(window, text=questions[0][3], command=lambda: next(3))
+button3.pack(pady=10)
 window.mainloop()
