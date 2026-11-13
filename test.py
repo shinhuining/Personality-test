@@ -62,8 +62,8 @@ questions=[
  "Reserved, thoughtful and independent.",
  "Friendly, adaptable and somewhere in between."]
 ]
-label=Label(window, text=questions[num][0], fg="black", bg="#AABBAA")
-intro=Label(window, text="Let's do a personality test!", fg="black", bg="#AABBAA")
+label=Label(window, text=questions[num][0], fg="black", bg="#AABBAA", font=("Palatino Linotype", 20))
+intro=Label(window, text="Let's do a personality test!", fg="black", bg="#AABBAA", font=("Gabriola", 30, "bold"))
 intro.pack(pady=20)
 def start_test():
     global num
@@ -97,7 +97,7 @@ def next(choice):
         else:
             result = personality[2]
 
-        label1=Label(window, text=result, fg="white", bg="black")
+        label1=Label(window, text=result, fg="black", bg="#AABBAA", font=("Palatino Linotype", 16))
         label1.pack(pady=20)
         label.config(text="Thank you for completing the test!")
         button1.pack_forget()
