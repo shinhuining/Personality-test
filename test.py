@@ -3,7 +3,7 @@ from tkinter import *
 window= Tk()
 window.geometry("920x400")
 window.title("Personality Test")
-
+window.config(bg="#AABBAA")
 num=0
 score=0
 questions=[
@@ -62,8 +62,17 @@ questions=[
  "Reserved, thoughtful and independent.",
  "Friendly, adaptable and somewhere in between."]
 ]
-label=Label(window, text=questions[num][0], fg="white", bg="black")
-label.pack(pady=20)
+label=Label(window, text=questions[num][0], fg="black", bg="#AABBAA")
+intro=Label(window, text="Let's do a personality test!", fg="black", bg="#AABBAA")
+intro.pack(pady=20)
+def start_test():
+    global num
+    intro.pack_forget()
+    button.pack_forget()
+    label.pack(pady=20)
+    button1.pack(pady=20)
+    button2.pack(pady=20)
+    button3.pack(pady=20)
 def next(choice):
     global num, score
     if choice == 1:
@@ -94,12 +103,10 @@ def next(choice):
         button1.pack_forget()
         button2.pack_forget()
         button3.pack_forget()
-
+button=Button(window, text="Continue", command=start_test)
+button.pack(pady=20)
 button1=Button(window, text=questions[0][1], command=lambda: next(1))
-button1.pack(pady=10)
 button2=Button(window, text=questions[0][2], command=lambda: next(2))
-button2.pack(pady=10)
 button3=Button(window, text=questions[0][3], command=lambda: next(3))
-button3.pack(pady=10)
 
 window.mainloop()
