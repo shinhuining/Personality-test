@@ -69,10 +69,10 @@ def start_test():
     global num
     intro.pack_forget()
     button.pack_forget()
-    label.pack(pady=20)
-    button1.pack(pady=20)
-    button2.pack(pady=20)
-    button3.pack(pady=20)
+    label.pack(pady=30)
+    button1.pack(pady=5)
+    button2.pack(pady=5)
+    button3.pack(pady=5)
 def next(choice):
     global num, score
     if choice == 1:
@@ -103,10 +103,10 @@ def next(choice):
         button1.pack_forget()
         button2.pack_forget()
         button3.pack_forget()
-button=Button(window, text="Continue", command=start_test)
+button=Button(window, text="Continue", font=("Calibri", 12), width=40, command=start_test)
 button.pack(pady=20)
-button1=Button(window, text=questions[0][1], command=lambda: next(1))
-button2=Button(window, text=questions[0][2], command=lambda: next(2))
-button3=Button(window, text=questions[0][3], command=lambda: next(3))
+button1=Button(window, text=questions[0][1], font=("Calibri", 12), width=40, command=lambda: next(1))
+button2=Button(window, text=questions[0][2], font=("Calibri", 12), width=40, command=lambda: next(2))
+button3=Button(window, text=questions[0][3], font=("Calibri", 12), width=40, wraplength=300, command=lambda: next(3))
 
 window.mainloop()
