@@ -1,12 +1,14 @@
 from tkinter import *
 
 window= Tk()
-window.geometry("920x400")
-window.title("Personality Test")
-window.config(bg="#AABBAA")
+window.geometry("920x550")
+window.title("Personality Test♡")
+window.config(bg="#F3EFFF")
+
 num=0
 score=0
 questions=[
+   
      ["How do you prefer spending your weekends?",
 "Going out, meeting friends.",
  "Staying home.",
@@ -62,51 +64,64 @@ questions=[
  "Reserved, thoughtful and independent.",
  "Friendly, adaptable and somewhere in between."]
 ]
-label=Label(window, text=questions[num][0], fg="black", bg="#AABBAA", font=("Palatino Linotype", 20))
-intro=Label(window, text="Let's do a personality test!", fg="black", bg="#AABBAA", font=("Gabriola", 30, "bold"))
-intro.pack(pady=20)
+
+intro_label=Label(window, text="✧A Personality Test✧", fg="black", bg="#F3EFFF", font=("Gabriola", 30))
+intro_label.pack(pady=10)
+decoration=Label(window, text="✧･ﾟ: *✧･ﾟ:*      *:･ﾟ✧*:･ﾟ✧", fg="black", bg="#F3EFFF", font=("Segoe UI", 15))
+decoration.pack(pady=15)
+subtitle_label=Label(window, text="Let's find out if you're an extrovert, introvert or ambivert!", fg="black", bg="#F3EFFF", font=("georgia", 15, "italic"))
+subtitle_label.pack(pady=10)
+label=Label(window, text=questions[num][0], fg="black", bg="#F3EFFF", font=("Palatino Linotype", 20))
+
 def start_test():
     global num
-    intro.pack_forget()
+    subtitle_label.pack_forget()
     button.pack_forget()
-    label.pack(pady=30)
+    label.pack(pady=20)
     button1.pack(pady=5)
     button2.pack(pady=5)
     button3.pack(pady=5)
 def next(choice):
-    global num, score
-    if choice == 1:
-        score += 5
-    elif choice == 2:
-        score += 2.5
-    elif choice == 3:
-        score += 0
-    num+=1
-    label.config(text=questions[num][0])
-    button1.config(text=questions[num][1])
-    button2.config(text=questions[num][2])
-    button3.config(text=questions[num][3])
+        global num, score
+        if choice == 1:
+            score += 5
+        elif choice == 2:
+            score += 2.5
+        elif choice == 3:
+            score += 0
+        num+=1
+        label.config(text=questions[num][0])
+        button1.config(text=questions[num][1])
+        button2.config(text=questions[num][2])
+        button3.config(text=questions[num][3])
+        
 
-    if num == len(questions)-1:
-        personality=["You are an extrovert! You thrive in social situations.", "You are an introvert! You prefer solitude and find energy in quiet environments.", "You are an ambivert! You have a balance of extrovert and introvert traits."]
-        pc=(score/(len(questions)*5))*100
-        if pc >= 60:
-            result = personality[0]
-        elif pc >= 40:
-            result = personality[1]
-        else:
-            result = personality[2]
+        if num == len(questions)-1:
+            personality=["You are an extrovert! You thrive in social situations.", "You are an introvert! You prefer solitude and find energy in quiet environments.", "You are an ambivert! You have a balance of extrovert and introvert traits."]
+            pc=(score/(len(questions)*5))*100
+            if pc >= 60:
+                result = personality[0]
+            elif pc >= 40:
+                result = personality[1]
+            else:
+                result = personality[2]
 
-        label1=Label(window, text=result, fg="black", bg="#AABBAA", font=("Palatino Linotype", 16))
-        label1.pack(pady=20)
-        label.config(text="Thank you for completing the test!")
-        button1.pack_forget()
-        button2.pack_forget()
-        button3.pack_forget()
-button=Button(window, text="Continue", font=("Calibri", 12), width=40, command=start_test)
+            label1=Label(window, text=result, fg="black", bg="#F3EFFF", font=("Calibri", 16))
+            label1.pack(pady=20)
+            label.config(text="Thank you for completing the test!")
+            button1.pack_forget()
+            button2.pack_forget()
+            button3.pack_forget()
+
+button=Button(window, text="continue", bg="#DCCBFF", font=("Segoe UI", 12), width=40, command=start_test)
 button.pack(pady=20)
-button1=Button(window, text=questions[0][1], font=("Calibri", 12), width=40, command=lambda: next(1))
-button2=Button(window, text=questions[0][2], font=("Calibri", 12), width=40, command=lambda: next(2))
-button3=Button(window, text=questions[0][3], font=("Calibri", 12), width=40, wraplength=300, command=lambda: next(3))
+button1=Button(window, text=questions[0][1],bg="#DCCBFF", font=("Segoe UI", 12), width=40, command=lambda: next(1))
+
+button2=Button(window, text=questions[0][2], bg="#DCCBFF", font=("Segoe UI", 12), width=40, command=lambda: next(2))
+
+button3=Button(window, text=questions[0][3], bg="#DCCBFF", font=("Segoe UI", 12), width=40, wraplength=300, command=lambda: next(3))
+footer = Label(window,text="Made by Shindy~", bg="#F3EFFF",fg="black", font=("Georgia", 15, "italic"))
+footer.pack(side=BOTTOM, pady=10)
+
 
 window.mainloop()
