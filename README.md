@@ -19,6 +19,17 @@ The program presents users with a series of questions, evaluates their responses
 - Percentage-based result calculation.
 - Final personality classification: Introvert, Extrovert or Ambivert.
 
+## 📸 Screenshots
+
+### Welcome Screen
+![Welcome Screen](screenshots/welcome.png)
+
+### Quiz Interface
+![Quiz Interface](screenshots/quiz.png)
+
+### Final Result
+![Final Result](screenshots/result.png)
+
 ## 🛠️ Technologies Used
 
 - **Python** – Core programming language.
